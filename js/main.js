@@ -17,7 +17,7 @@ resize();
 
 var visualizer = new Visualizer({ ctx: context })
   , player     = new Player({ tracks: ['The Prodigy - Firestarter.mp3'], visualizer: visualizer })
-  , favicon    = new Favico();
+  , favicon    = new Favico(); 
 
 function init () {
     bindEvents();
