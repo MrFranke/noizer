@@ -5,23 +5,38 @@
 })();
 
 var canvas     = document.querySelector('#layout')
-  , context    = canvas.getContext('2d');
+  , context    = canvas.getContext('2d')
+  , favicons   = {play: 'styles/img/play.ico', pause: 'styles/img/stop.ico'};
+
+favicons.play = new Image();
+favicons.pause = new Image();
+favicons.play.src = 'styles/img/play.ico';
+favicons.pause.src = 'styles/img/stop.ico';
 
 resize();
 
-var visualizer =  new Visualizer({ ctx: context })
-  , player     =  new Player({ tracks: ['The Prodigy - Climbatize (Original Mix).mp3'], visualizer: visualizer });
+var visualizer = new Visualizer({ ctx: context })
+  , player     = new Player({ tracks: ['The Prodigy - Firestarter.mp3'], visualizer: visualizer })
+  , favicon    = new Favico();
 
 function init () {
     bindEvents();
 }
 
 function bindEvents () {
-    document.ready = resize;
     window.addEventListener('resize', resize);
-    document.querySelector('.js-play').addEventListener('click', player.play);
-    document.querySelector('.js-stop').addEventListener('click', player.stop);
-    document.querySelector('.js-pause').addEventListener('click', player.pause);
+    document.querySelector('.js-play').addEventListener('click', function () {
+        player.play();
+        favicon.image(favicons.play);
+    });
+    document.querySelector('.js-stop').addEventListener('click', function () {
+        player.stop();
+        favicon.image(favicons.pause);
+    });
+    document.querySelector('.js-pause').addEventListener('click', function () {
+        player.pause();
+        favicon.image(favicons.pause);
+    });
 }
 
 function resize () {
