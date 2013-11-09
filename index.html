@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height user-scalable=no">
+    <link rel="shortcut icon" href="styles/img/stop.ico" type="image/x-icon">
+    <title>Audio Web API</title>
+    <link rel="stylesheet/less" type="text/css" href="/styles/fontawesome.less">
+    <link rel="stylesheet/less" type="text/css" href="/styles/style.less">
+    <script src="js/libs/favico.min.js"></script>
+    <script src="js/libs/less.js"></script>
+</head>
+<body>
+    <canvas id="layout"></canvas>
+    
+    <select name="" id="" class="js-changestyle">
+        <option value="leftSide">leftSide</option>
+        <option value="pulse" selected>pulse</option>
+        <option value="cardiogram">cardiogram</option>
+    </select>
+    
+    <div class="js-soundtrack"></div>
+    
+    <div class="controls">
+        <input type="range" min="0" max="100" step="1" value="50" class="js-volume"> 
+        <input type="radio" name="controls" id="" class="js-stop button icon-stop" checked="checked">
+        <input type="radio" name="controls" id="" class="js-pause button icon-pause">
+        <input type="radio" name="controls" id="" class="js-play button icon-play">
+    </div>
+
+    <div id="overlay">
+    
+        <div class="hello">
+            <div class="hello__dropfile">
+                Перетащите mp3 сюда
+            </div>
+            или вы можете прослушать <span class="hello__testfile">test.mp3</span>
+        </div>
+        
+        <div id="preloader">
+            <div id="preloader__wrapper">
+                <span id="preloader__counter"></span>
+                <br>
+                <span id="preloader__text"></span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/visualizer.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
