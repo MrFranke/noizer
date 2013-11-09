@@ -1,2 +1,163 @@
-/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by bracketLESS (codeblog.co.uk/bracketless) */
-html { height: 100%;}body { background: #EEE; padding: 0; margin: 0; box-shadow: 0 0 160px 70px #ccc inset; overflow: hidden; height: 100%;}.controls { position: absolute; right: 20px; bottom: 20px;}.button { border: none; background: #fcfcfc; cursor: pointer; border-radius: 100%; color: #222222; outline: none; width: 65px; height: 65px; font-size: 28px; box-shadow: 3px 4px 15px -2px #222222, 0 2px 1px 1px #999999; border: 2px solid #222222; text-align: center; line-height: 65px; margin-right: 10px; position: relative; -webkit-appearance: button; -webkit-transition: all 0.1s; -moz-transition: all 0.1s; -o-transition: all 0.1s; transition: all 0.1s;}.button:active,.button.active { top: 5px; box-shadow: none; box-shadow: none, 0 0px 3px 2px #000;}.button:checked { top: 5px; box-shadow: none; box-shadow: none, 0 0px 3px 2px #000;}.js-soundtrack { position: absolute; top: 20px; right: 20px; color: #222; font-size: 20px; font-weight: bold; text-shadow: 2px 1px 2px #fff;}#overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: none; background: rgba(255, 255, 255, 0.6);}#overlay #preloader { width: 128px; height: 128px; position: fixed; top: 50%; left: 50%; margin-top: -64px; margin-left: -64px; text-align: center; color: #333; font-weight: bold; text-shadow: 0 0 20px #000; line-height: 128px; display: none;}#overlay #preloader__wrapper { line-height: 16px; display: inline-block;}.hello { display: block; position: fixed; width: 800px; height: 600px; top: 50%; left: 50%; margin-top: -300px; margin-left: -400px; background: #ffffff; border-radius: 11px; border: 3px solid; padding: 10px; box-shadow: 0px 4px 13px 2px rgba(0, 0, 0, 0.3); color: #222; text-align: center; font-size: 35px;}.hello__dropfile { display: block; height: 400px; border: 5px dashed #888888; margin: auto; text-align: center; line-height: 400px; border-radius: 10px; font-size: 35px; color: #888888; margin-bottom: 80px;}.hello__dropfile.hover { border: 5px dashed darkness(#888888); color: darkness(#888888);}.hello__testfile { color: #b94a39; cursor: pointer; text-decoration: underline;}.hello__testfile:hover { text-decoration: none;}
+html {
+  height: 100%;
+}
+body {
+  background: #EEE;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 0 160px 70px #ccc inset;
+  overflow: hidden;
+  height: 100%;
+}
+.controls {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.button {
+  border: none;
+  background: #fcfcfc;
+  cursor: pointer;
+  border-radius: 100%;
+  color: #222222;
+  outline: none;
+  width: 65px;
+  height: 65px;
+  font-size: 28px;
+  box-shadow: 3px 4px 15px -2px #222222, 0 2px 1px 1px #999999;
+  border: 2px solid #222222;
+  text-align: center;
+  line-height: 65px;
+  margin-right: 10px;
+  position: relative;
+  -webkit-appearance: button;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.button:active,
+.button.active {
+  top: 3px;
+  box-shadow: none;
+  box-shadow: none, 0 0px 3px 2px #000;
+}
+.button:checked {
+  top: 5px;
+  box-shadow: none;
+  box-shadow: none, 0 0px 3px 2px #000;
+}
+.js-soundtrack {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #222;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 2px 1px 2px #fff;
+}
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(255, 255, 255, 0.6);
+}
+#overlay #preloader {
+  width: 128px;
+  height: 128px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -64px;
+  margin-left: -64px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  text-shadow: 0 0 20px #000;
+  line-height: 128px;
+  display: none;
+}
+#overlay #preloader__wrapper {
+  line-height: 16px;
+  display: inline-block;
+}
+.hello {
+  display: block;
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  height: 600px;
+  top: 50%;
+  margin: -300px auto 0;
+  background: #ffffff;
+  border-radius: 11px;
+  border: 3px solid;
+  padding: 10px;
+  box-shadow: 0px 4px 13px 2px rgba(0, 0, 0, 0.3);
+  color: #222;
+  text-align: center;
+  font-size: 35px;
+}
+.hello__dropfile {
+  display: block;
+  height: 400px;
+  border: 5px dashed #888888;
+  margin: auto;
+  text-align: center;
+  line-height: 400px;
+  border-radius: 10px;
+  font-size: 35px;
+  color: #888888;
+  margin-bottom: 80px;
+}
+.hello__dropfile.hover {
+  border: 5px dashed darkness(#888888);
+  color: darkness(#888888);
+}
+.hello__testfile {
+  color: #b94a39;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.hello__testfile:hover {
+  text-decoration: none;
+}
+.js-volume {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  background: #fff;
+  border-right: 10px;
+}
+.js-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #222;
+  opacity: inherit;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+}
+.js-changestyle {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+@media (max-width: 1024px) {
+  .hello {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+  }
+  .hello__dropfile {
+    display: none;
+  }
+}
