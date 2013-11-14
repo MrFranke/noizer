@@ -4,7 +4,8 @@
  */
 var Visualizer = function ( options ) {
 
-    var ctx = options.ctx
+    var canvas     = document.querySelector('#layout')
+      , ctx    = canvas.getContext('2d')
       , points = [] // Данные о треке
       , cechePoints = [0]
       , styles = {
@@ -16,8 +17,14 @@ var Visualizer = function ( options ) {
       , style = 'pulse'; // Вид эквалайзера
 
     function init () {
+        resize();
         updateVars();
+        bindEvents();
         draw();
+    }
+
+    function bindEvents () {
+        window.addEventListener('resize', resize);
     }
 
     function draw () {
@@ -163,8 +170,13 @@ var Visualizer = function ( options ) {
         ctx.stroke();
     }
 
+    function resize () {
+        ctx.canvas.width = document.body.clientWidth;
+        ctx.canvas.height = document.body.clientHeight;
+    }
+
     function findStepWidth () {
-        step = ctx.canvas.width/1024;
+        step = ctx.canvas.width/points.length;
     }
 
     function update (p) {
@@ -180,6 +192,7 @@ var Visualizer = function ( options ) {
 
     return {
         update: update,
-        changeStyle: changeStyle
+        changeStyle: changeStyle,
+        context: ctx
     };
 };

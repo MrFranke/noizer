@@ -9,10 +9,10 @@ var Player = function ( options ) {
       , destination // Аудиовыход
       , analyser // Анализатор частот
       , gainNode // Блок громкости
-      , frequencyData // Данные о треке
+      , frequencyData // Массив с частотами 
       , visualizer = options.visualizer || visualizer
       , musicFiles = options.tracks || ['test.mp3']
-      , currentFile = { name: musicFiles[0], url: musicFiles[0] }
+      , currentFile = { name: musicFiles[0], url: musicFiles[0], buffer: null }
       , idFrame // Если true, то визуадизация работает, как только становится false, визуализация выключается
       
       , autoplay
@@ -27,7 +27,7 @@ var Player = function ( options ) {
 
     function bindEvents () {
         document.querySelector('.hello__testfile').addEventListener('click', function () {
-            loadSoundFile(currentFile.url, function () {
+            downloadSoundFile( currentFile.url, function () {
                 setPreloader(false);
                 preporationForPlay();
             });
@@ -51,6 +51,7 @@ var Player = function ( options ) {
         gainNode.gain.value = this.value/100;
     }
     
+    // Инициализаци ядроп зоны для музыки
     function initDropZone () {
         var dropZone = document.querySelector('.hello__dropfile');
         dropZone.addEventListener('dragover', handleDragOver, false);
@@ -105,7 +106,7 @@ var Player = function ( options ) {
         }
     }
 
-    function loadSoundFile (url, callback) {
+    function downloadSoundFile (url, callback) {
         setPreloader('Загрузка трека');
         // делаем XMLHttpRequest на сервер
         var xhr = new XMLHttpRequest()
@@ -165,26 +166,7 @@ var Player = function ( options ) {
         overlay.style.display = 'block';
     }
 
-    // API ===================================================
-
-    function play () {
-        source = context.createBufferSource();
-        source.buffer = buffer;
-        source.connect(gainNode);
-        gainNode.connect(destination);
-        setAnalyzer();
-        source.start(0);
-    }
-
-    function stop () {
-        source.stop(0);
-        cancelAnimationFrame(idFrame);
-    }
-
-    function pause () {
-        source.pause(0);
-    }
-
+    // Подключает нод анализатора и обновляет визуализатор для отрисовки
     function setAnalyzer () {
         analyser = context.createAnalyser();
         analyser.fftSize = 1024;
@@ -202,12 +184,35 @@ var Player = function ( options ) {
         requestAnimationFrame(step);
     }
 
+    function playSound ( sound ) {
+        source = context.createBufferSource();
+        source.buffer = sound;
+        source.connect(gainNode);
+        gainNode.connect(destination);
+        setAnalyzer();
+        source.start(0);
+    }
+
+    // API ===================================================
+
+    function play () {
+        playSound(buffer);
+    }
+
+    function stop () {
+        source.stop(0);
+        cancelAnimationFrame(idFrame);
+    }
+
+    function pause () {
+        
+    }
+
     init();
 
     return{
         play: play,
         stop: stop,
-        pause: pause,
-        setAnalyzer: setAnalyzer
+        pause: pause
     };
 };
